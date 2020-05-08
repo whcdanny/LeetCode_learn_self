@@ -63,3 +63,47 @@ namespace ConsoleApp1
         }
     }
 }
+
+/*public class Solution {
+    public int MinIncrementForUnique(int[] A) {
+        const int Step1 = 40000;
+        ushort[] count = new ushort[Step1];
+        foreach (int a in A) count[a]++;
+
+        int ret = 0;
+        int takenCount = 0;
+        int index = 0;
+        for (; index < Step1; ++index)
+        {
+            var c = count[index];
+            if ( 1 < c )
+            {
+                int taken = c - 1;
+                takenCount += taken;
+                ret -= index * taken;
+            }
+            else if ( 0 < takenCount && c == 0)
+            {
+                takenCount--;
+                ret += index;
+            }
+        }
+
+        //for (; 0 < takenCount; ++index)
+        //{
+        //    takenCount--;
+        //    ret += index;
+        //}
+
+
+        //if( 0 < takenCount ) ret += (index + index + takenCount - 1) * takenCount / 2;
+
+        if (0 < takenCount)
+        {
+            ret += index * takenCount;
+            ret += (takenCount - 1) * takenCount / 2;
+        }
+
+        return ret;
+    }    
+}*/
