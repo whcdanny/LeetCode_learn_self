@@ -23,3 +23,24 @@ public class Solution {
         }
     }
 }
+
+//Java
+class Solution {
+    public List<List<Integer>> subsets(int[] nums) {
+        List<List<Integer>> result = new ArrayList<>();
+        if(nums==null || nums.length==0){
+            return result;
+        }
+        List<Integer> list = new ArrayList<>();
+        dfs(result, list, 0, nums);
+        return result;
+    }
+    public void dfs(List<List<Integer>> result,List<Integer> list, int start, int[] nums){
+        result.add(new ArrayList<>(list));
+        for(int i=start; i<nums.length;++i){
+            list.add(nums[i]);
+            dfs(result, list, i+1, nums);
+            list.remove(list.size()-1);
+        }
+    }
+}
