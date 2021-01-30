@@ -13,8 +13,8 @@ public int MaxProfit(int k, int[] prices)
 		int localMax = -prices[0]; 
 		for (int j = 1; j < prices.Length; j++)
 		{
-		profits[i,j] = Math.Max(profits[i,j - 1], prices[j] + localMax);                   
-		localMax = Math.Max(localMax, profits[i - 1,j] - prices[j]);
+			profits[i,j] = Math.Max(profits[i,j - 1], prices[j] + localMax);                   
+			localMax = Math.Max(localMax, profits[i - 1,j] - prices[j]);
 		}
 	}
 
